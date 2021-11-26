@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>CardChecker</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+<body>
+    <div class="card" id="app">
+
+        <!-- Здесь будет выводиться ЛОГОТИП БАНКА -->
+        <div class="bank">
+            <img v-if="numberCard.slice(0, 6) == '521178'" src="img/banks/alpha.png">
+            <img v-if="numberCard.slice(0, 6) == '548673'" src="img/banks/alpha.png">
+            <img v-if="numberCard.slice(0, 6) == '548601'" src="img/banks/alpha.png">
+            <img v-if="numberCard.slice(0, 6) == '415428'" src="img/banks/alpha.png">
+            <img v-if="numberCard.slice(0, 6) == '676371'" src="img/banks/alpha.png">
+            <img v-if="numberCard.slice(0, 6) == '477964'" src="img/banks/alpha.png">
+            <img v-if="numberCard.slice(0, 6) == '479004'" src="img/banks/alpha.png">
+            <img v-if="numberCard.slice(0, 6) == '427229'" src="img/banks/vtb.png">
+            <img v-if="numberCard.slice(0, 6) == '527883'" src="img/banks/vtb.png">
+            <img v-if="numberCard.slice(0, 6) == '447520'" src="img/banks/vtb.png">
+            <img v-if="numberCard.slice(0, 6) == '548999'" src="img/banks/gazprombank.png">
+            <img v-if="numberCard.slice(0, 6) == '526483'" src="img/banks/gazprombank.png">
+            <img v-if="numberCard.slice(0, 6) == '533736'" src="img/banks/mts-bank.png">
+            <img v-if="numberCard.slice(0, 6) == '540616'" src="img/banks/mts-bank.png">
+            <img v-if="numberCard.slice(0, 6) == '434146'" src="img/banks/otkrytie.png">
+            <img v-if="numberCard.slice(0, 6) == '405870'" src="img/banks/otkrytie.png">
+            <img v-if="numberCard.slice(0, 6) == '544573'" src="img/banks/otkrytie.png">
+            <img v-if="numberCard.slice(0, 6) == '532301'" src="img/banks/otkrytie.png">
+            <img v-if="numberCard.slice(0, 6) == '440503'" src="img/banks/rosbank.png">
+            <img v-if="numberCard.slice(0, 6) == '554761'" src="img/banks/rosbank.png">
+            <img v-if="numberCard.slice(0, 6) == '513691'" src="img/banks/russian_standart.png">
+            <img v-if="numberCard.slice(0, 6) == '510047'" src="img/banks/russian_standart.png">
+            <img v-if="numberCard.slice(0, 6) == '462730'" src="img/banks/raiffaizen.png">
+            <img v-if="numberCard.slice(0, 6) == '462729'" src="img/banks/raiffaizen.png">
+            <img v-if="numberCard.slice(0, 6) == '427683'" src="img/banks/sberbank.png">
+            <img v-if="numberCard.slice(0, 6) == '427901'" src="img/banks/sberbank.png">
+            <img v-if="numberCard.slice(0, 6) == '427644'" src="img/banks/sberbank.png">
+            <img v-if="numberCard.slice(0, 6) == '427601'" src="img/banks/sberbank.png">
+            <img v-if="numberCard.slice(0, 6) == '427901'" src="img/banks/sberbank.png">
+            <img v-if="numberCard.slice(0, 6) == '427631'" src="img/banks/sberbank.png">
+            <img v-if="numberCard.slice(0, 6) == '427638'" src="img/banks/sberbank.png">
+            <img v-if="numberCard.slice(0, 6) == '546938'" src="img/banks/sberbank.png">
+            <img v-if="numberCard.slice(0, 6) == '521324'" src="img/banks/tinkoff.png">
+            <img v-if="numberCard.slice(0, 6) == '437773'" src="img/banks/tinkoff.png">
+            
+            
+            
+            
+            
+        </div>
+
+        <!-- Поле для ввода НОМЕРА КАРТЫ -->
+        <div class="number-container">
+            <input v-if="numberCard.length == 16" type="text" placeholder="Номер карты" v-model="numberCard" class="input-ok">
+            <input v-else type="text" placeholder="Номер карты" v-model="numberCard" class="input-err">
+            <div v-if="numberCard.length == 16" class="status status-ok"></div>
+            <div v-else class="status status-err"></div>
+        </div>
+
+        <!-- Поле для ввода ИМЕНИ ДЕРЖАТЕЛЯ -->
+        <div class="name-container">
+            <input type="text" placeholder="Имя держателя">
+            <div class="status"></div>
+        </div>
+
+
+        <!-- Логотип ПЛАТЕЖНОЙ СИСТЕМЫ -->
+        <div class="pay-system" v-if="numberCard[0] == 2">
+            <img src="img/systems/mir.png">
+        </div>
+
+        <div class="pay-system" v-if="numberCard[0] == 3">
+            <img src="img/systems/american-exp.png">
+        </div>
+
+        <div class="pay-system" v-if="numberCard[0] == 4">
+            <img src="img/systems/visa.png">
+        </div>
+
+        <div class="pay-system" v-if="numberCard[0] == 5">
+            <img src="img/systems/mastercard.png">
+        </div>
+
+        <div class="pay-system" v-if="numberCard[0] == 6">
+            <img src="img/systems/maestro.png">
+        </div>
+
+        
+
+    </div>
+
+    <script>
+        "use strict";
+        
+        const app = Vue.createApp({
+            data() {
+                return {
+                    numberCard: ""
+                    
+                }
+            }
+        });
+
+        const vm = app.mount('#app');
+    </script>
+</body>
+</html>
